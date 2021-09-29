@@ -1,0 +1,143 @@
+html {
+    box-sizing: border-box;
+}
+
+*, 
+*::before, 
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background: rgb(5,0,36);
+    background: linear-gradient(90deg, rgba(5,0,36,0.5466561624649859) 0%, rgba(23,116,101,0.8911939775910365) 11%, rgba(0,212,255,0.9164040616246498) 100%);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.help {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-color: cyan;
+}
+
+.help__heading {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #aaa;
+}
+
+.list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.list__item {
+    display: inline-block;
+    color: tomato;
+}
+
+.list__item + .list__item {
+    margin-left: 20px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #fff;
+    border: 1px solid #aaa;
+}
+
+.wrapper > div  {
+    position: relative;
+    width: 450px;
+}
+
+.info__header,
+.result__header {
+    border: 1px solid #aaa;
+    border-top-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+
+.info__header-title,
+.result__header-title {
+    font-size: 24px;
+    text-align: center;
+}
+
+.info__list,
+.result__list {
+    min-height: 150px;
+    padding: 10px 40px;
+    list-style: none;
+    border: 1px solid #aaa;
+    box-shadow: rgba(231, 102, 102, 0.5) 0px 3px 8px 2px;
+}
+
+.info__item, .result__item {
+    animation-name: yur;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.result__item {
+    animation-direction: reverse;
+}
+
+.info__btn {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+}
+
+@keyframes yur {
+    0% {
+        transform: translateX(0);
+        color: red;
+    }
+    25% {
+        transform: translateX(-20px);
+        color: green;
+    }
+    50% {
+        transform: translateX(0);
+        color: green;
+    }
+    75% {
+        transform: translateX(20px);
+        color: green;
+    }
+    100% {
+        transform: translateX(0);
+        color: green;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .wrapper {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 50px;
+    }
+}
+
+
+@media only screen and (max-width: 500px) {
+    .wrapper > div {
+        width: 350px;
+    }
+}
