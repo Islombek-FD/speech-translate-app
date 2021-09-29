@@ -9,14 +9,18 @@ function translateDictionary (elInfoItem, elResultItem, dictionary, translate ) 
     elInfoItem.setAttribute('class', 'info__item');
     elResultItem = document.createElement('li');
     elResultItem.setAttribute('class', 'result__item');
-    elInfoItem.textContent = dictionary;
-    elResultItem.textContent = translate;
+    elInfoItem.textContent = `${dictionary} - ${translate}`;
+    elResultItem.textContent = `${translate} - ${dictionary}`;
     return elInfoList.appendChild(elInfoItem), elResultList.appendChild(elResultItem);
 }
 
 var rec = new webkitSpeechRecognition();
 
 rec.lang = 'uz-UZ';
+
+elInfoBtn.addEventListener('click', function () {
+    rec.start();
+})
 
 rec.onend = function () {
     console.log('Ovoz yozib olish tugadi. Qayta ishlatish uchun Submit tugmasimi bosing!!!');
@@ -48,7 +52,3 @@ rec.onresult = function (evt) {
     }
 }
 
-
-elInfoBtn.addEventListener('click', function () {
-    rec.start();
-})
