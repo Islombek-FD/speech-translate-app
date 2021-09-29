@@ -1,8 +1,27 @@
 var elInfoList = document.querySelector('.info__list'),
+    elWrapper = document.querySelector('.wrapper'),
     elInfoBtn = document.querySelector('.info__btn'),
-    elResultList = document.querySelector('.result__list');
+    elResultList = document.querySelector('.result__list'),
+    elIcons = document.querySelector('.icons');
+
+var iconsReverse = false;
+
+elIcons.addEventListener('click', function () {
+    if (!iconsReverse) {
+        elWrapper.classList.add('reverse');
+        iconsReverse = true;
+    }
+    else {
+        elWrapper.classList.remove('reverse');
+        iconsReverse = false;
+    }
+})
+
+
 var elInfoItem,
     elResultItem;
+
+
 
 function translateDictionary (elInfoItem, elResultItem, dictionary, translate ) {
     elInfoItem = document.createElement('li');
@@ -24,6 +43,7 @@ elInfoBtn.addEventListener('click', function () {
 
 rec.onend = function () {
     console.log('Ovoz yozib olish tugadi. Qayta ishlatish uchun Submit tugmasimi bosing!!!');
+    
 }
 
 rec.onresult = function (evt) {
@@ -49,6 +69,12 @@ rec.onresult = function (evt) {
     }
     else if (sound === 'dunyo') {
         translateDictionary (elInfoItem, elResultItem, sound, 'world');
+    }
+    else if (sound === 'yaxshi') {
+        translateDictionary (elInfoItem, elResultItem, sound, 'good');
+    }
+    else if (sound === 'telefon') {
+        translateDictionary (elInfoItem, elResultItem, sound, 'phone');
     }
 }
 

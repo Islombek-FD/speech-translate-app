@@ -60,7 +60,16 @@ body {
     border: 1px solid #aaa;
 }
 
-.wrapper > div  {
+.wrapper.reverse {
+    flex-direction: row-reverse;
+}
+
+.info {
+    position: relative;
+}
+
+.info__list,
+.result__list  {
     position: relative;
     width: 450px;
 }
@@ -81,7 +90,7 @@ body {
 .info__list,
 .result__list {
     min-height: 150px;
-    padding: 10px 40px;
+    padding: 10px 40px 40px;
     list-style: none;
     border: 1px solid #aaa;
     box-shadow: rgba(231, 102, 102, 0.5) 0px 3px 8px 2px;
@@ -100,8 +109,28 @@ body {
 
 .info__btn {
     position: absolute;
-    bottom: -20px;
+    bottom: 25px;
+    left: 10px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    transition: all .3s ease;
+}
+
+.info__btn:hover {
+    color: red;
+}
+
+.icons {
+    position: relative;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.icon:nth-child(2) {
+    position: absolute;
     left: 0;
+    top: 25px;
 }
 
 @keyframes yur {
@@ -133,11 +162,20 @@ body {
         align-items: center;
         row-gap: 50px;
     }
+
+    .wrapper.reverse {
+        flex-direction: column-reverse;
+    }
+
+    .icons {
+        width: 100%;
+    }
 }
 
 
 @media only screen and (max-width: 500px) {
-    .wrapper > div {
+    .info__list,
+    .result__list {
         width: 350px;
     }
 }
